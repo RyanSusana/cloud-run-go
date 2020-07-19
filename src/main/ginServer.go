@@ -17,6 +17,7 @@ func main() {
 	r.POST("/pubsub", func(context *gin.Context) {
 		all, _ := ioutil.ReadAll(context.Request.Body)
 		fmt.Println("Response: " + string(all))
+		context.String(http.StatusOK, "Acknowledged!")
 	})
 
 	r.Run()
